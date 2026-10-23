@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Monitor cen konkurencji</title>
+<style>
+  :root { --tlo:#f6f7f9; --karta:#fff; --tekst:#1d2330; --szary:#667085; --linia:#eaecf0;
+          --zielony:#079455; --czerwony:#d92d20; --akcent:#2e6bd0; }
+  @media (prefers-color-scheme: dark) {
+    :root { --tlo:#0f1218; --karta:#181c24; --tekst:#e6e8ec; --szary:#98a2b3; --linia:#2a303b;
+            --zielony:#3ccb7f; --czerwony:#f97066; --akcent:#7aa7ff; }
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; font:16px/1.5 system-ui, sans-serif; background:var(--tlo); color:var(--tekst); }
+  main { max-width:1000px; margin:0 auto; padding:32px 16px; }
+  h1 { margin:0 0 4px; } .podtytul { color:var(--szary); margin:0 0 24px; }
+  .tabela { overflow-x:auto; background:var(--karta); border-radius:12px; box-shadow:0 1px 2px #0002; }
+  table { width:100%; border-collapse:collapse; }
+  th, td { text-align:left; padding:10px 14px; border-bottom:1px solid var(--linia); vertical-align:middle; }
+  th { font-size:13px; color:var(--szary); font-weight:600; }
+  .cena { font-weight:700; white-space:nowrap; }
+  .spadek { color:var(--zielony); font-weight:700; } .wzrost { color:var(--czerwony); font-weight:700; }
+  .brak, small { color:var(--szary); }
+  .wykres { color:var(--akcent); }
+  a { color:var(--akcent); }
+  .bledy { margin-top:24px; background:var(--karta); border-left:6px solid var(--czerwony);
+           border-radius:12px; padding:8px 20px; }
+  footer { color:var(--szary); font-size:13px; margin-top:32px; }
+</style>
+</head>
+<body><main>
+  <h1>Monitor cen konkurencji</h1>
+  <p class="podtytul">Ostatnie sprawdzenie: 2026-10-23 20:11 UTC · produktów: 4 · pomiarów: 4</p>
+  <div class="tabela"><table>
+    <thead><tr><th>Produkt</th><th>Cena</th><th>Ostatnia zmiana</th><th>Zakres</th><th>Historia</th></tr></thead>
+    <tbody>
+        <tr>
+          <td><a href="https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html">A Light in the Attic (books.toscrape)</a></td>
+          <td class="cena">51.77 GBP</td>
+          <td><span class="brak">bez zmian</span></td>
+          <td>51.77 GBP – 51.77 GBP</td>
+          <td class="wykres"><span class="brak">za mało danych</span></td>
+        </tr>
+        <tr>
+          <td><a href="https://books.toscrape.com/catalogue/tipping-the-velvet_999/index.html">Tipping the Velvet (books.toscrape)</a></td>
+          <td class="cena">53.74 GBP</td>
+          <td><span class="brak">bez zmian</span></td>
+          <td>53.74 GBP – 53.74 GBP</td>
+          <td class="wykres"><span class="brak">za mało danych</span></td>
+        </tr>
+        <tr>
+          <td><a href="https://web-scraping.dev/product/1">Box of Chocolate Candy (web-scraping.dev)</a></td>
+          <td class="cena">9.99 USD</td>
+          <td><span class="brak">bez zmian</span></td>
+          <td>9.99 USD – 9.99 USD</td>
+          <td class="wykres"><span class="brak">za mało danych</span></td>
+        </tr>
+        <tr>
+          <td><a href="https://web-scraping.dev/product/2">Dark Red Energy Potion (web-scraping.dev)</a></td>
+          <td class="cena">4.99 USD</td>
+          <td><span class="brak">bez zmian</span></td>
+          <td>4.99 USD – 4.99 USD</td>
+          <td class="wykres"><span class="brak">za mało danych</span></td>
+        </tr></tbody>
+  </table></div>
+  
+  <footer>Strona aktualizowana automatycznie codziennie przez GitHub Actions.</footer>
+</main></body>
+</html>

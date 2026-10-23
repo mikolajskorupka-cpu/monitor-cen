@@ -1,0 +1,12 @@
+# Środowisko Pythona
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Sekrety (adres webhooka, hasło do poczty) - nigdy nie trafiają na GitHuba
+.env
+
+# Edytor / system
+.vscode/
+Thumbs.db

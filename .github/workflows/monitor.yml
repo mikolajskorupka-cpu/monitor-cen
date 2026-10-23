@@ -1,0 +1,49 @@
+# Codzienne uruchomienie monitora cen na serwerach GitHuba (za darmo).
+# Wynik: nowe wiersze w dane/historia.csv i odświeżona strona docs/index.html.
+name: Monitor cen
+
+on:
+  schedule:
+    - cron: "0 6 * * *"   # codziennie o 6:00 UTC (8:00 czasu polskiego latem)
+  workflow_dispatch:      # przycisk "Run workflow" do ręcznego uruchomienia
+
+permissions:
+  contents: write         # pozwala zapisać (commit) nową historię cen
+
+concurrency:
+  group: monitor-cen
+  cancel-in-progress: false
+
+jobs:
+  sprawdz-ceny:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - name: Instalacja bibliotek
+        run: pip install -r requirements.txt
+
+      - name: Sprawdzenie cen
+        env:
+          # Sekrety ustawia się w repo: Settings -> Secrets and variables -> Actions
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_HASLO: ${{ secrets.SMTP_HASLO }}
+          ALERT_EMAIL_DO: ${{ secrets.ALERT_EMAIL_DO }}
+        run: python -m monitor_cen
+
+      - name: Zapis historii cen
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add dane docs
+          git diff --cached --quiet || git commit -m "Pomiar cen $(date -u +'%Y-%m-%d %H:%M') UTC"
+          git push

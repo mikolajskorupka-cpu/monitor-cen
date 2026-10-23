@@ -1,0 +1,20 @@
+[
+  {
+    "nazwa": "A Light in the Attic (books.toscrape)",
+    "url": "https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html",
+    "selektor": "p.price_color"
+  },
+  {
+    "nazwa": "Tipping the Velvet (books.toscrape)",
+    "url": "https://books.toscrape.com/catalogue/tipping-the-velvet_999/index.html",
+    "selektor": "p.price_color"
+  },
+  {
+    "nazwa": "Box of Chocolate Candy (web-scraping.dev)",
+    "url": "https://web-scraping.dev/product/1"
+  },
+  {
+    "nazwa": "Dark Red Energy Potion (web-scraping.dev)",
+    "url": "https://web-scraping.dev/product/2"
+  }
+]
